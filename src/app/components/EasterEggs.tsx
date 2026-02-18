@@ -33,7 +33,6 @@ export function EasterEggs() {
   const [shiftHoldTime, setShiftHoldTime] = useState(0);
   const [showShiftEgg, setShowShiftEgg] = useState(false);
   const [showScrollEgg, setShowScrollEgg] = useState(false);
-  const [showShakeEgg, setShowShakeEgg] = useState(false);
   const [showSpaceEgg, setShowSpaceEgg] = useState(false);
   const [confettiMode, setConfettiMode] = useState(false);
 
@@ -187,38 +186,6 @@ export function EasterEggs() {
     };
   }, []);
 
-  // NEW: Hard - Shake mouse rapidly
-  useEffect(() => {
-    let mousePositions: { x: number; y: number; time: number }[] = [];
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      mousePositions.push({ x: e.clientX, y: e.clientY, time: now });
-      
-      // Keep only last 500ms of positions
-      mousePositions = mousePositions.filter(pos => now - pos.time < 500);
-      
-      // Check if mouse is shaking (rapid back and forth movement)
-      if (mousePositions.length > 20) {
-        let totalDistance = 0;
-        for (let i = 1; i < mousePositions.length; i++) {
-          const dx = mousePositions[i].x - mousePositions[i-1].x;
-          const dy = mousePositions[i].y - mousePositions[i-1].y;
-          totalDistance += Math.sqrt(dx * dx + dy * dy);
-        }
-        
-        // If moved a lot in short time = shaking
-        if (totalDistance > 1000) {
-          setShowShakeEgg(true);
-          setTimeout(() => setShowShakeEgg(false), 4000);
-          mousePositions = [];
-        }
-      }
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   // NEW: Hard - Hold spacebar for 5 seconds
   useEffect(() => {
@@ -398,50 +365,6 @@ export function EasterEggs() {
         )}
       </AnimatePresence>
 
-      {/* NEW: Mouse shake easter egg */}
-      <AnimatePresence>
-        {showShakeEgg && (
-          <motion.div
-            initial={{ opacity: 0, rotate: -10 }}
-            animate={{ opacity: 1, rotate: [0, 5, -5, 0] }}
-            exit={{ opacity: 0, rotate: 10 }}
-            transition={{ rotate: { repeat: 3, duration: 0.2 } }}
-            className="fixed top-1/4 left-6 z-[9999] pointer-events-none"
-          >
-            <div className="bg-gradient-to-br from-pink-600 to-rose-600 text-white px-6 py-4 rounded-xl shadow-2xl border-2 border-pink-400">
-              <div className="flex items-center gap-3">
-                <Zap className="h-8 w-8" />
-                <div>
-                  <p className="text-lg font-bold">Whoa, easy there! 🖱️</p>
-                  <p className="text-sm opacity-90">That's some serious energy!</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* NEW: Spacebar hold easter egg */}
-      <AnimatePresence>
-        {showSpaceEgg && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed top-1/2 right-6 z-[9999] pointer-events-none"
-          >
-            <div className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white px-6 py-4 rounded-xl shadow-2xl border-2 border-blue-400">
-              <div className="flex items-center gap-3">
-                <Coffee className="h-8 w-8" />
-                <div>
-                  <p className="text-lg font-bold">Taking a space break? ☕</p>
-                  <p className="text-sm opacity-90">We dig the chill vibes</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Progress indicator for konami code (hidden until you start) */}
       {konamiIndex > 0 && konamiIndex < konamiCode.length && (
