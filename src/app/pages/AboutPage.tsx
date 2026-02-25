@@ -7,7 +7,7 @@ export function AboutPage() {
     <div className="min-h-screen pt-24 px-6 pb-20">
       <PageMeta 
         title="About Us - Systems-First Approach"
-        description="We're not your typical agency. Technical infrastructure specialists with a systems-first, diagnostic approach to revenue infrastructure. Founded by a mathematician with government systems experience."
+        description="We're not your typical agency. Technical infrastructure specialists with a systems-first, diagnostic approach to revenue infrastructure. Founded by a real programmer with secure government systems experience."
       />
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -113,9 +113,9 @@ export function AboutPage() {
                 Sell everywhere. Manage once.
               </p>
               <p className="text-xl text-slate-400 leading-relaxed mb-6">
-                I'm Kevin Stahl. I built government databases and enterprise systems—data science, forensic analysis, 
-                HR infrastructure. That same diagnostic precision now powers e-commerce revenue systems. 
-                I connect products to every channel that matters, with the technical rigor most agencies can't deliver.
+                With a background in government databases and enterprise systems—data science, systems analysis, 
+                we bring that same diagnostic precision that powers e-commerce revenue systems. 
+                We connect products to every channel that matters, with the technical rigor most agencies can't deliver.
               </p>
               <p className="text-xl text-slate-400 leading-relaxed mb-6">
                 Most businesses treat their sales channels like separate entities. Your Shopify store runs on one system, 
