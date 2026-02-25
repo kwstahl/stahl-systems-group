@@ -33,7 +33,6 @@ const packages: PackageCard[] = [
     tagline: "We stay on your team.",
     gradient: "from-orange-500 to-red-500",
     featured: true,
-    badge: "POPULAR", // ✅ you can put POPULAR here instead of the featured ribbon if you want
   },
 ];
 
