@@ -33,9 +33,9 @@ export function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${ 
         scrolled 
-          ? "bg-[#0a0a1f]/90 backdrop-blur-lg border-b border-indigo-500/20" 
+          ? "bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm" 
           : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -54,12 +54,12 @@ export function Navigation() {
                 animate={{ rotate: [0, 180, 360] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <Zap className="w-5 h-5 text-indigo-400" />
+                <Zap className="w-5 h-5 text-[#1E5BBF]" />
               </motion.div>
               <span className="text-xl font-bold tracking-tight">
-                <span className="text-white">Stahl</span>
-                <span className="text-slate-600">//</span>
-                <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                <span className={scrolled ? "text-[#111111]" : "text-white"}>Stahl</span>
+                <span className="text-[#666666]">//</span>
+                <span className="text-[#1E5BBF]">
                   Systems
                 </span>
               </span>
@@ -77,31 +77,31 @@ export function Navigation() {
                 <motion.div
                   className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? "text-indigo-400"
-                      : "text-slate-400 hover:text-white"
+                      ? "text-[#1E5BBF]"
+                      : scrolled ? "text-[#666666] hover:text-[#111111]" : "text-slate-300 hover:text-white"
                   }`}
                   whileHover={{ y: -2 }}
                 >
                   {link.name}
                   {location.pathname === link.path && (
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#1E5BBF]"
                       layoutId="underline"
                     />
                   )}
                 </motion.div>
               </Link>
             ))}
-            <div className="ml-4 pl-4 border-l border-slate-800">
+            <div className={`ml-4 pl-4 border-l ${scrolled ? "border-gray-300" : "border-slate-700"}`}>
               <Link to="/contact">
                 <motion.button
-                  className="bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-2 rounded-md text-sm font-semibold relative overflow-hidden group"
+                  className="bg-[#1E5BBF] text-white px-5 py-2 rounded-md text-sm font-semibold relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative z-10">Talk to Us</span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500"
+                    className="absolute inset-0 bg-[#2F6FD6]"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "0%" }}
                     transition={{ duration: 0.3 }}
@@ -113,7 +113,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white"
+            className={scrolled ? "md:hidden text-[#111111]" : "md:hidden text-white"}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -124,7 +124,7 @@ export function Navigation() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden mt-4 pb-4 bg-[#0a0a1f] rounded-lg border border-indigo-500/20 p-2"
+              className="md:hidden mt-4 pb-4 bg-white rounded-lg border border-gray-200 p-2 shadow-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -139,8 +139,8 @@ export function Navigation() {
                     <div
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         location.pathname === link.path
-                          ? "text-indigo-400 bg-indigo-500/10"
-                          : "text-slate-400 hover:bg-slate-800"
+                          ? "text-[#1E5BBF] bg-[#1E5BBF]/10"
+                          : "text-[#666666] hover:bg-gray-100"
                       }`}
                     >
                       {link.name}
@@ -148,7 +148,7 @@ export function Navigation() {
                   </Link>
                 ))}
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  <button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-3 rounded-lg text-sm font-semibold mt-2">
+                  <button className="w-full bg-[#1E5BBF] text-white px-5 py-3 rounded-lg text-sm font-semibold mt-2">
                     Talk to Us
                   </button>
                 </Link>

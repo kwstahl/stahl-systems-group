@@ -6,35 +6,35 @@ const steps = [
     icon: Search,
     title: "Diagnose",
     description: "We analyze your current setup and identify what needs to be built or expanded.",
-    color: "from-blue-500 to-cyan-500"
+    color: "from-[#1E5BBF] to-[#2F6FD6]"
   },
   {
     icon: Hammer,
     title: "Build",
     description: "We create your store and configure it correctly from the ground up.",
-    color: "from-cyan-500 to-teal-500"
+    color: "from-[#2F6FD6] to-[#1E5BBF]"
   },
   {
     icon: Link2,
     title: "Connect",
     description: "We integrate every platform, supplier, and sales channel you need.",
-    color: "from-teal-500 to-emerald-500"
+    color: "from-[#1E5BBF] to-[#2F6FD6]"
   },
   {
     icon: TrendingUp,
     title: "Scale",
     description: "We optimize performance and expand distribution as your brand grows.",
-    color: "from-emerald-500 to-purple-500"
+    color: "from-[#2F6FD6] to-[#1E5BBF]"
   }
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="px-6 py-32 bg-[#050510] relative overflow-hidden">
+    <section id="how-it-works" className="px-6 py-32 bg-[#111111] relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
         <motion.div
-          className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"
+          className="absolute top-0 left-0 w-96 h-96 bg-[#2F6FD6]/5 rounded-full blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],
@@ -55,7 +55,7 @@ export function HowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">How It Works</h2>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white">How It Works</h2>
         </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -82,7 +82,7 @@ export function HowItWorks() {
                       className={`absolute inset-0 rounded-full bg-gradient-to-r ${step.color} blur-xl`}
                       animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
+                        opacity: [0.3, 0.5, 0.3],
                       }}
                       transition={{
                         duration: 2,

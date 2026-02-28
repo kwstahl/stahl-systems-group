@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import { Zap } from "lucide-react";
+import heroBackground from "../../assets/hero.jpg";
+
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -9,18 +11,23 @@ export function Hero() {
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Animated grid background */}
+    <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden bg-[#111111]">
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a2e_1px,transparent_1px),linear-gradient(to_bottom,#1a1a2e_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a1f]/50 to-[#0a0a1f]" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#111111]/70 via-[#111111]/60 to-[#111111]/90" />
+        {/* Subtle blue accent overlay */}
         <motion.div 
           className="absolute inset-0"
           style={{
-            background: "radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.15) 0%, transparent 50%)"
+            background: "radial-gradient(circle at 50% 50%, rgba(30, 91, 191, 0.12) 0%, transparent 50%)"
           }}
           animate={{
-            opacity: [0.3, 0.6, 0.3]
+            opacity: [0.3, 0.5, 0.3]
           }}
           transition={{
             duration: 10,
@@ -39,9 +46,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white">
             <span className="block">Build.</span>
-            <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#1E5BBF] to-[#2F6FD6] bg-clip-text text-transparent">
               Sell.
             </span>
             <span className="block">Scale.</span>
@@ -49,7 +56,7 @@ export function Hero() {
         </motion.div>
 
         <motion.p 
-          className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -65,12 +72,12 @@ export function Hero() {
         >
           <Link to="/contact">
             <motion.button 
-              className="group relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 rounded-lg overflow-hidden text-lg font-semibold"
+              className="group relative bg-[#1E5BBF] text-white px-10 py-5 rounded-lg overflow-hidden text-lg font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500"
+                className="absolute inset-0 bg-[#2F6FD6]"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "0%" }}
                 transition={{ duration: 0.3 }}
@@ -83,8 +90,8 @@ export function Hero() {
           </Link>
           
           <motion.button 
-            className="border-2 border-indigo-500/50 px-10 py-5 rounded-lg hover:bg-indigo-500/10 transition-all backdrop-blur-sm text-lg font-semibold"
-            whileHover={{ scale: 1.05, borderColor: "rgba(99, 102, 241, 0.8)" }}
+            className="border-2 border-[#2F6FD6]/40 text-white px-10 py-5 rounded-lg hover:bg-[#2F6FD6]/10 transition-all backdrop-blur-sm text-lg font-semibold"
+            whileHover={{ scale: 1.05, borderColor: "rgba(47, 111, 214, 0.6)" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
@@ -95,7 +102,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="pt-8 border-t border-indigo-500/20 max-w-3xl mx-auto"
+          className="pt-8 border-t border-[#2F6FD6]/20 max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}

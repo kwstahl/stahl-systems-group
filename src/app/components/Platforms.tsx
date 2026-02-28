@@ -6,39 +6,39 @@ const platforms = [
     icon: ShoppingCart,
     title: "Core Platforms",
     items: ["Shopify", "WooCommerce", "BigCommerce", "Custom Solutions"],
-    gradient: "from-blue-500 to-cyan-500",
+    gradient: "from-[#1E5BBF] to-[#2F6FD6]",
     image: "ecommerce platforms"
   },
   {
     icon: Globe,
     title: "Marketplaces",
     items: ["Amazon", "Etsy", "eBay", "Walmart"],
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-[#2F6FD6] to-[#1E5BBF]",
     image: "online marketplace"
   },
   {
     icon: Share2,
     title: "Social Commerce",
     items: ["TikTok Shop", "Instagram Shopping", "Facebook Shop", "Pinterest"],
-    gradient: "from-emerald-500 to-teal-500",
+    gradient: "from-[#1E5BBF] to-[#2F6FD6]",
     image: "social media shopping"
   },
   {
     icon: Package,
     title: "Distribution",
     items: ["Google Shopping", "Product feeds", "Multi-channel sync", "Direct-to-follower"],
-    gradient: "from-orange-500 to-amber-500",
+    gradient: "from-[#2F6FD6] to-[#1E5BBF]",
     image: "product distribution"
   }
 ];
 
 export function Platforms() {
   return (
-    <section className="px-6 py-32 bg-[#050510] relative overflow-hidden">
+    <section className="px-6 py-32 bg-[#111111] relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
         <motion.div
-          className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"
+          className="absolute top-0 left-0 w-96 h-96 bg-[#2F6FD6]/5 rounded-full blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],
@@ -59,10 +59,10 @@ export function Platforms() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">
-            We Connect <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Everything</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+            We Connect <span className="bg-gradient-to-r from-[#1E5BBF] to-[#2F6FD6] bg-clip-text text-transparent">Everything</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Sell everywhere. Manage once.
           </p>
         </motion.div>
@@ -81,17 +81,17 @@ export function Platforms() {
                 whileHover={{ y: -8 }}
               >
                 {/* Card */}
-                <div className="relative border border-slate-800 bg-[#0a0a1f] rounded-xl overflow-hidden h-full group-hover:border-indigo-500/50 transition-all">
+                <div className="relative border border-[#333333] bg-[#1a1a1a] rounded-xl overflow-hidden h-full group-hover:border-[#2F6FD6]/50 transition-all">
                   {/* Icon Header */}
                   <div className="p-6">
                     <div className={`w-12 h-12 flex items-center justify-center bg-gradient-to-br ${platform.gradient} rounded-lg mb-4`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{platform.title}</h3>
+                    <h3 className="text-xl font-bold mb-3 text-white">{platform.title}</h3>
                     <ul className="space-y-2">
                       {platform.items.map((item, i) => (
                         <li key={i} className="text-sm text-slate-400 flex items-start gap-2">
-                          <span className="text-indigo-400 mt-1">•</span>
+                          <span className="text-[#2F6FD6] mt-1">•</span>
                           {item}
                         </li>
                       ))}

@@ -50,9 +50,9 @@ const scenarios = [
 
 export function CaseScenarios() {
   return (
-    <section className="px-6 py-32 bg-[#050510] relative overflow-hidden">
+    <section className="px-6 py-32 bg-[#F7F8FA] relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2F6FD6]/3 to-transparent" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
@@ -62,17 +62,15 @@ export function CaseScenarios() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-              Problem
-            </span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-4 text-[#111111]">
+            Problem
             {" → "}
-            <span className="bg-gradient-to-r from-indigo-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1E5BBF] to-[#2F6FD6] bg-clip-text text-transparent">
               Solution
             </span>
           </h2>
-          <p className="text-xl text-slate-400">
-            We analyze what's broken. We secure what matters. We scale what works.
+          <p className="text-xl text-[#666666]">
+            Real problems we've diagnosed and rebuilt
           </p>
         </motion.div>
         
@@ -93,27 +91,27 @@ export function CaseScenarios() {
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-30 rounded-xl blur-lg transition-opacity"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-10 rounded-xl blur-lg transition-opacity"
                 />
-                <div className="relative border border-red-900/50 bg-gradient-to-br from-red-950/20 to-[#0a0a1f] p-8 rounded-xl backdrop-blur-sm">
+                <div className="relative border border-red-200 bg-white p-8 rounded-xl shadow-sm">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-red-500/20 rounded-lg">
-                      <AlertCircle className="w-6 h-6 text-red-400" />
+                    <div className="p-2 bg-red-100 rounded-lg">
+                      <AlertCircle className="w-6 h-6 text-red-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-red-400">The Problem</h3>
+                    <h3 className="text-2xl font-bold text-red-600">The Problem</h3>
                   </div>
-                  <h4 className="text-xl text-slate-300 mb-6 font-semibold">{scenario.problem.title}</h4>
+                  <h4 className="text-xl text-[#111111] mb-6 font-semibold">{scenario.problem.title}</h4>
                   <ul className="space-y-3">
                     {scenario.problem.points.map((point, i) => (
                       <motion.li 
                         key={i} 
-                        className="text-slate-400 flex items-start gap-3"
+                        className="text-[#666666] flex items-start gap-3"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 * i }}
                       >
-                        <span className="text-red-500/70 mt-1 text-lg">×</span>
+                        <span className="text-red-400 mt-1 text-lg">×</span>
                         <span>{point}</span>
                       </motion.li>
                     ))}
@@ -127,7 +125,7 @@ export function CaseScenarios() {
                   animate={{ x: [0, 10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <ArrowRight className="w-12 h-12 text-indigo-500" />
+                  <ArrowRight className="w-12 h-12 text-[#2F6FD6]" />
                 </motion.div>
               </div>
               
@@ -138,27 +136,27 @@ export function CaseScenarios() {
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-emerald-500 opacity-0 group-hover:opacity-30 rounded-xl blur-lg transition-opacity"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-[#1E5BBF] to-[#2F6FD6] opacity-0 group-hover:opacity-10 rounded-xl blur-lg transition-opacity"
                 />
-                <div className="relative border border-indigo-500/50 bg-gradient-to-br from-indigo-950/20 to-[#0f0f1f] p-8 rounded-xl backdrop-blur-sm">
+                <div className="relative border border-[#2F6FD6]/30 bg-white p-8 rounded-xl shadow-sm">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-emerald-500/20 rounded-lg">
-                      <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+                    <div className="p-2 bg-green-100 rounded-lg">
+                      <CheckCircle2 className="w-6 h-6 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-emerald-400">Our Solution</h3>
+                    <h3 className="text-2xl font-bold text-green-600">Our Solution</h3>
                   </div>
-                  <h4 className="text-xl text-white mb-6 font-semibold">{scenario.solution.title}</h4>
+                  <h4 className="text-xl text-[#111111] mb-6 font-semibold">{scenario.solution.title}</h4>
                   <ul className="space-y-3">
                     {scenario.solution.points.map((point, i) => (
                       <motion.li 
                         key={i} 
-                        className="text-slate-300 flex items-start gap-3"
+                        className="text-[#666666] flex items-start gap-3"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 * i }}
                       >
-                        <span className="text-emerald-400 mt-1">✓</span>
+                        <span className="text-green-500 mt-1">✓</span>
                         <span>{point}</span>
                       </motion.li>
                     ))}
@@ -177,8 +175,8 @@ export function CaseScenarios() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-slate-400 text-lg mb-2">
-            The difference? <span className="text-indigo-400 font-semibold">Systems thinking.</span> Investigation. Precision.
+          <p className="text-[#666666] text-lg mb-2">
+            The difference? <span className="text-[#2F6FD6] font-semibold">Systems thinking.</span> Investigation. Precision.
           </p>
           <p className="text-slate-500">
             We treat your business like our own.
